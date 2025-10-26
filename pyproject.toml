@@ -1,0 +1,18 @@
+[project]
+name = "free-inference"
+version = "0.1.0"
+description = "OpenRouter-compatible API for accessing multiple LLM models"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "sphinx>=7.2.0",
+    "sphinx-rtd-theme>=2.0.0",
+    "myst-parser>=2.0.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
