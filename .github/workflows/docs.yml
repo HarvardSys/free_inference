@@ -22,7 +22,6 @@ concurrency:
 env:
   PYTHON_VERSION: "3.13"
   UV_VERSION: "0.5.0"
-  UV_SYSTEM_PYTHON: 1
 
 jobs:
   build:
@@ -42,14 +41,12 @@ jobs:
       - name: Install dependencies
         run: |
           uv venv
-          source .venv/bin/activate
-          uv pip install sphinx sphinx-rtd-theme myst-parser
+          .venv/bin/pip install sphinx sphinx-rtd-theme myst-parser
 
       - name: Build Sphinx documentation
         run: |
-          source .venv/bin/activate
           cd docs
-          sphinx-build -b html source build/html -W --keep-going
+          ../.venv/bin/sphinx-build -b html source build/html -W --keep-going
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
