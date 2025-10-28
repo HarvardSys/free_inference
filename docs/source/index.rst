@@ -1,9 +1,9 @@
-HybridInference API Documentation
-===================================
+Free Inference User Guide
+==========================
 
 **OpenRouter-compatible API for accessing multiple LLM models**
 
-Get started with HybridInference in minutes. Our API provides seamless access to
+Get started with Free Inference in minutes. Our API provides seamless access to
 state-of-the-art language models including Llama 3.3, Llama 4, Gemini, GPT-5, and Claude.
 
 Quick Links
@@ -23,23 +23,6 @@ Quick Links
    models
    examples
    api-reference
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Developer Guide:
-   :hidden:
-
-   developer/installation
-   developer/deployment
-   developer/architecture
-   developer/routing
-   developer/adding-models
-   developer/configuration
-   developer/database
-   developer/openrouter
-   developer/freeinference
-   developer/fasrc
-   developer/contributing
 
 .. toctree::
    :maxdepth: 1

@@ -1,8 +1,8 @@
-"""Sphinx configuration for the HybridInference documentation site.
+"""Sphinx configuration for the Free Inference user documentation.
 
-This module configures Sphinx extensions, HTML theme, source parsers,
-and autodoc defaults used to build the docs. It also adjusts the Python
-path so that project modules can be imported for API documentation.
+This module configures Sphinx extensions, HTML theme, and source parsers
+used to build the user-facing documentation. This documentation focuses
+on helping users get started and use the Free Inference API.
 """
 
 # Configuration file for the Sphinx documentation builder.
@@ -19,22 +19,17 @@ sys.path.insert(0, os.path.abspath("../.."))
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = "HybridInference"
+project = "Free Inference"
 copyright = "2025, Harvard System Lab"
-author = "Muxin Tian"
+author = "Harvard System Lab"
 release = "0.1.0"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
-    "sphinx.ext.autodoc",  # Auto-generate docs from docstrings
-    "sphinx.ext.napoleon",  # Support for Google/NumPy style docstrings
-    "sphinx.ext.viewcode",  # Add links to source code
-    "sphinx.ext.intersphinx",  # Link to other project's documentation
-    "sphinx.ext.todo",  # Support for todo items
-    "sphinx.ext.coverage",  # Check documentation coverage
     "myst_parser",  # Support for Markdown files
+    "sphinx.ext.intersphinx",  # Link to other project's documentation
 ]
 
 # MyST parser configuration
@@ -44,34 +39,9 @@ myst_enable_extensions = [
     "tasklist",  # Task lists
 ]
 
-# Napoleon settings for Google-style docstrings
-napoleon_google_docstring = True
-napoleon_numpy_docstring = False
-napoleon_include_init_with_doc = True
-napoleon_include_private_with_doc = False
-napoleon_include_special_with_doc = True
-napoleon_use_admonition_for_examples = True
-napoleon_use_admonition_for_notes = True
-napoleon_use_admonition_for_references = False
-napoleon_use_ivar = False
-napoleon_use_param = True
-napoleon_use_rtype = True
-napoleon_preprocess_types = True
-
-# Autodoc settings
-autodoc_default_options = {
-    "members": True,
-    "member-order": "bysource",
-    "special-members": "__init__",
-    "undoc-members": True,
-    "exclude-members": "__weakref__",
-}
-
-# Intersphinx mapping
+# Intersphinx mapping - link to Python docs for better references
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3", None),
-    "fastapi": ("https://fastapi.tiangolo.com", None),
-    "pydantic": ("https://docs.pydantic.dev/latest/", None),
 }
 
 templates_path = ["_templates"]
@@ -103,5 +73,3 @@ html_css_files = [
     "custom.css",
 ]
 
-# Show todo items
-todo_include_todos = True
