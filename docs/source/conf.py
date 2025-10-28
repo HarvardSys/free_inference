@@ -73,3 +73,21 @@ html_css_files = [
     "custom.css",
 ]
 
+# Add .nojekyll file for GitHub Pages to prevent Jekyll processing
+# This ensures _static and other underscore-prefixed folders are served correctly
+html_extra_path = []
+
+
+def setup(app):
+    """Sphinx setup hook to create .nojekyll file for GitHub Pages."""
+    import os
+
+    def create_nojekyll(app, exception):
+        """Create .nojekyll file in build output directory."""
+        if exception is None and app.builder.name == 'html':
+            nojekyll_path = os.path.join(app.outdir, '.nojekyll')
+            with open(nojekyll_path, 'w') as f:
+                pass  # Create empty file
+
+    app.connect('build-finished', create_nojekyll)
+
