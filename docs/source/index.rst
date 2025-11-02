@@ -26,23 +26,6 @@ Quick Links
    integrations
    api-reference
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Developer Guide:
-   :hidden:
-
-   developer/installation
-   developer/deployment
-   developer/architecture
-   developer/routing
-   developer/adding-models
-   developer/configuration
-   developer/database
-   developer/openrouter
-   developer/freeinference
-   developer/fasrc
-   developer/contributing
-
 Key Features
 ------------
 
