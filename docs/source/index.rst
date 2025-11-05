@@ -88,12 +88,6 @@ Available Models
    * - Llama 4 Maverick
      - 128K tokens
      - Free
-   * - Gemini 2.5 Flash
-     - 1M tokens
-     - Free
-   * - GPT-5
-     - 128K tokens
-     - Free
 
 See the complete :doc:`models` list for all available models.
 
