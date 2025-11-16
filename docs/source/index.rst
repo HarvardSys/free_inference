@@ -1,19 +1,17 @@
-HybridInference API Documentation
+FreeInference Documentation
 ===================================
 
-**OpenRouter-compatible API for accessing multiple LLM models**
+**Free LLM inference for coding agents and IDEs**
 
-Get started with HybridInference in minutes. Our API provides seamless access to
-state-of-the-art language models including Llama 3.3, Llama 4, Gemini, GPT-5, and Claude.
+FreeInference provides free access to state-of-the-art language models 
+specifically designed for coding agents like Cursor, Codex, Roo Code, and other AI-powered IDEs.
 
 Quick Links
 -----------
 
 * :doc:`quickstart` - Get started in 5 minutes
+* :doc:`integrations` - Configure with Cursor, Codex, and other coding agents
 * :doc:`models` - View available models
-* :doc:`examples` - Code examples in Python, JavaScript, and more
-* :doc:`integrations` - Configure with Cursor, Windsurf, and other coding agents
-* :doc:`api-reference` - Complete API reference
 
 .. toctree::
    :maxdepth: 2
@@ -21,56 +19,37 @@ Quick Links
    :hidden:
 
    quickstart
-   models
-   examples
    integrations
-   api-reference
+   models
 
 Key Features
 ------------
 
-**Fast & Reliable**
-   Low-latency inference with automatic failover
-
-**OpenRouter Compatible**
-   Drop-in replacement for OpenRouter API
+**Free Access**
+   Free inference for coding agents and development tools
 
 **Multiple Models**
-   Access Llama, Gemini, GPT, and Claude models
+   Access Qwen, GLM, DeepSeek, and other powerful models
 
-**Production Ready**
-   Built for scale with monitoring and observability
+**IDE Integration**
+   Easy setup with Cursor, Codex, Roo Code, Kilo Code, and more
+
+
 
 Getting Started
 ---------------
 
 1. **Get your API key** (contact the team)
 
-2. **Install the OpenAI SDK:**
+2. **Choose your IDE:**
 
-   .. code-block:: bash
+   - :doc:`Cursor <integrations>` - AI-powered code editor
+   - :doc:`Codex <integrations>` - Terminal-based coding assistant
+   - :doc:`Roo Code / Kilo Code <integrations>` - VS Code extensions
 
-      pip install openai
+3. **Configure and start coding!**
 
-3. **Make your first request:**
-
-   .. code-block:: python
-
-      import openai
-
-      client = openai.OpenAI(
-          base_url="https://freeinference.org/v1",
-          api_key="your-api-key-here"
-      )
-
-      response = client.chat.completions.create(
-          model="llama-3.3-70b-instruct",
-          messages=[{"role": "user", "content": "Hello!"}]
-      )
-
-      print(response.choices[0].message.content)
-
-See the :doc:`quickstart` guide for more details.
+See the :doc:`quickstart` guide for detailed setup instructions.
 
 Available Models
 ----------------
@@ -81,13 +60,25 @@ Available Models
 
    * - Model
      - Context Length
-     - Pricing
-   * - Llama 3.3 70B Instruct
+     - Best For
+   * - GLM-4.6
+     - 200K tokens
+     - Long context, bilingual
+   * - MiniMax M2
+     - 196K tokens
+     - Very large codebases
+   * - Llama 3.3 70B
      - 131K tokens
-     - Free
+     - General coding tasks
    * - Llama 4 Maverick
      - 128K tokens
-     - Free
+     - Multimodal support
+   * - DeepSeek R1
+     - 64K tokens
+     - Complex reasoning
+   * - Qwen3 Coder 30B
+     - 32K tokens
+     - Code generation
 
 See the complete :doc:`models` list for all available models.
 
@@ -96,6 +87,6 @@ Support
 
 Need help? Check out:
 
-* :doc:`examples` - Code examples
-* :doc:`api-reference` - API documentation
+* :doc:`integrations` - IDE setup guides
+* :doc:`models` - Available models
 * GitHub Issues - Report bugs or request features
