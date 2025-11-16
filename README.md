@@ -1,36 +1,94 @@
-# Free Inference
+# FreeInference
 
-OpenRouter-compatible API for accessing multiple LLM models.
+Free LLM inference for coding agents and AI-powered IDEs.
+
+## Overview
+
+FreeInference provides free access to state-of-the-art language models specifically designed for coding agents like Cursor, Codex, Roo Code, and other AI-powered development tools.
 
 ## Documentation
 
 Visit our documentation at: https://harvardsys.github.io/free_inference/
 
+## Supported IDEs & Coding Agents
+
+- **[Cursor](https://cursor.sh/)** - AI-powered code editor
+- **[Codex](https://codex.so/)** - Terminal-based coding assistant
+- **[Roo Code](https://roo.dev/)** - VS Code & JetBrains extension
+- **[Kilo Code](https://kilo.dev/)** - AI coding assistant
+- And any tool that supports OpenAI-compatible APIs
+
 ## Quick Start
 
-```python
-import openai
+### Cursor Setup
 
-client = openai.OpenAI(
-    base_url="https://freeinference.org/v1",
-    api_key="your-api-key-here"
-)
+1. Open Settings (`Cmd + ,` or `Ctrl + ,`)
+2. Go to **API Keys** section
+3. Enter your FreeInference API key
+4. Click **Override OpenAI Base URL**
+5. Enter: `https://freeinference.org/v1`
+6. Enable the toggle and start coding!
 
-response = client.chat.completions.create(
-    model="llama-3.3-70b-instruct",
-    messages=[{"role": "user", "content": "Hello!"}]
-)
+### Codex Setup
 
-print(response.choices[0].message.content)
+1. Create `~/.codex/config.toml`:
+
+```toml
+model = "glm-4.6"
+model_provider = "free_inference"
+
+[model_providers.free_inference]
+name = "FreeInference"
+base_url = "https://freeinference.org/v1"
+wire_api = "chat"
+env_http_headers = { "X-Session-ID" = "CODEX_SESSION_ID", "Authorization" = "FREEINFERENCE_API_KEY" }
 ```
+
+2. Add to `~/.zshrc` or `~/.bashrc`:
+
+```bash
+export CODEX_SESSION_ID="$(date +%Y%m%d-%H%M%S)-$(uuidgen)"
+export FREEINFERENCE_API_KEY="Bearer your-api-key-here"
+```
+
+3. Reload: `source ~/.zshrc`
+
+### Roo Code / Kilo Code Setup
+
+1. Install the extension in your IDE
+2. Open settings
+3. Select **OpenAI Compatible** as provider
+4. Configure:
+   - Base URL: `https://freeinference.org/v1`
+   - API Key: `your-api-key-here`
+5. Select your preferred model
 
 ## Available Models
 
-- Llama 3.3 70B Instruct
-- Llama 4 Scout & Maverick
-- Gemini 2.5 Flash
-- GPT-5
-- Claude Opus 4.1
-- GLM-4.5
+- **GLM-4.6** - 200K context, best for long context and bilingual support
+- **MiniMax M2** - 196K context, best for very large codebases
+- **Llama 3.3 70B** - 131K context, excellent for general coding
+- **Llama 4 Scout** - 128K context, optimized for speed
+- **Llama 4 Maverick** - 128K context, multimodal support
+- **DeepSeek R1** - 64K context, advanced reasoning
+- **Qwen3 Coder 30B** - 32K context, specialized for code generation
+- **GLM-4.5 / GLM-4.5-Air** - Bilingual Chinese/English support
 
 See the [Models documentation](https://harvardsys.github.io/free_inference/models.html) for the complete list.
+
+## Get API Key
+
+Contact the team to get your API key for FreeInference.
+
+## Documentation Links
+
+- [Quick Start Guide](https://harvardsys.github.io/free_inference/quickstart.html)
+- [IDE Integration Guides](https://harvardsys.github.io/free_inference/integrations.html)
+- [Configuration Examples](https://harvardsys.github.io/free_inference/examples.html)
+- [Available Models](https://harvardsys.github.io/free_inference/models.html)
+
+## Support
+
+- Documentation: https://harvardsys.github.io/free_inference/
+- Issues: GitHub Issues
+- Questions: Contact the team

@@ -1,114 +1,68 @@
 # Quick Start
 
-Get started with HybridInference API in 5 minutes.
+Get started with FreeInference in 5 minutes.
 
-## Overview
+## Step 1: Get Your API Key
 
-HybridInference provides an OpenRouter-compatible API for accessing multiple LLM models through a single endpoint.
+Contact the team to get your FreeInference API key.
 
-**API Endpoint:** `https://freeinference.org/v1`
+## Step 2: Choose Your IDE
 
-## Get Your API Key
+### Cursor
 
-Contact the team to get your API key, or use the example key for testing:
+1. Open Settings (`Cmd + ,` or `Ctrl + ,`)
+2. Go to **API Keys** → Enter your API key
+3. Click **Override OpenAI Base URL** → Enter: `https://freeinference.org/v1`
+4. Enable the toggle and start coding
 
-```bash
-export HYBRIDINFERENCE_API_KEY="your-api-key-here"
-```
+[Detailed setup →](integrations.md)
 
-## Make Your First Request
+### Codex
 
-### Using curl
+1. Create `~/.codex/config.toml`:
+   ```toml
+   model = "glm-4.6"
+   model_provider = "free_inference"
+   
+   [model_providers.free_inference]
+   name = "FreeInference"
+   base_url = "https://freeinference.org/v1"
+   wire_api = "chat"
+   env_http_headers = { "X-Session-ID" = "CODEX_SESSION_ID", "Authorization" = "FREEINFERENCE_API_KEY" }
+   ```
 
-```bash
-curl http://freeinference.org/v1/chat/completions \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $HYBRIDINFERENCE_API_KEY" \
-  -d '{
-    "model": "llama-3.3-70b-instruct",
-    "messages": [
-      {
-        "role": "user",
-        "content": "What is the capital of France?"
-      }
-    ]
-  }'
-```
+2. Add to `~/.zshrc`:
+   ```bash
+   export CODEX_SESSION_ID="$(date +%Y%m%d-%H%M%S)-$(uuidgen)"
+   export FREEINFERENCE_API_KEY="Bearer your-api-key-here"
+   ```
 
-### Using Python
+3. Reload: `source ~/.zshrc`
 
-```python
-import openai
+[Detailed setup →](integrations.md)
 
-client = openai.OpenAI(
-    base_url="https://freeinference.org/v1",
-    api_key="your-api-key-here"
-)
+### Roo Code / Kilo Code
 
-response = client.chat.completions.create(
-    model="llama-3.3-70b-instruct",
-    messages=[
-        {"role": "user", "content": "What is the capital of France?"}
-    ]
-)
+1. Install extension in your IDE
+2. Settings → **OpenAI Compatible**
+3. Base URL: `https://freeinference.org/v1`
+4. API Key: `your-api-key-here`
 
-print(response.choices[0].message.content)
-```
+[Detailed setup →](integrations.md)
 
-### Using JavaScript/TypeScript
+---
 
-```javascript
-import OpenAI from 'openai';
+## Step 3: Choose a Model
 
-const client = new OpenAI({
-  baseURL: 'https://freeinference.org/v1',
-  apiKey: 'your-api-key-here',
-});
+See [available models](models.md) and select one that fits your needs.
 
-async function main() {
-  const response = await client.chat.completions.create({
-    model: 'llama-3.3-70b-instruct',
-    messages: [
-      { role: 'user', content: 'What is the capital of France?' }
-    ],
-  });
-
-  console.log(response.choices[0].message.content);
-}
-
-main();
-```
-
-## Streaming Responses
-
-```python
-import openai
-
-client = openai.OpenAI(
-    base_url="https://freeinference.org/v1",
-    api_key="your-api-key-here"
-)
-
-stream = client.chat.completions.create(
-    model="llama-3.3-70b-instruct",
-    messages=[{"role": "user", "content": "Tell me a story"}],
-    stream=True
-)
-
-for chunk in stream:
-    if chunk.choices[0].delta.content:
-        print(chunk.choices[0].delta.content, end="")
-```
-
-## Check Available Models
-
-```bash
-curl http://freeinference.org/v1/models \
-  -H "Authorization: Bearer $HYBRIDINFERENCE_API_KEY"
-```
+---
 
 ## Next Steps
 
-- [View all available models](models.md)
-- [API reference](api-reference.md)
-- [Code examples](examples.md)
+- [Integration Guides](integrations.md) - Detailed setup and troubleshooting
+- [Available Models](models.md) - Model specifications and features
+
+## Need Help?
+
+Having issues? Check the [integration guide](integrations.md) for troubleshooting.
