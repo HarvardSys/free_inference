@@ -39,7 +39,7 @@ Key Features
 Getting Started
 ---------------
 
-1. **Get your API key** (contact the team)
+1. **Get your API key** - Register at `https://freeinference.org <https://freeinference.org>`_ and create your API key
 
 2. **Choose your IDE:**
 

@@ -4,7 +4,9 @@ Get started with FreeInference in 5 minutes.
 
 ## Step 1: Get Your API Key
 
-Contact the team to get your FreeInference API key.
+1. Visit [https://freeinference.org](https://freeinference.org)
+2. Register for a free account
+3. Log in and create your API key from the dashboard
 
 ## Step 2: Choose Your IDE
 

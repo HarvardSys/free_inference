@@ -78,7 +78,10 @@ See the [Models documentation](https://harvardsys.github.io/free_inference/model
 
 ## Get API Key
 
-Contact the team to get your API key for FreeInference.
+1. Visit [https://freeinference.org](https://freeinference.org)
+2. Register for a free account
+3. Log in and create your API key
+4. Start using FreeInference with your favorite IDE!
 
 ## Documentation Links
 
